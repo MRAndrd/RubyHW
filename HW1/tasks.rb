@@ -311,6 +311,7 @@ filtering.each do |e|
   array.delete(e)
 end
 p array
+p '--------------'
 
 
 
