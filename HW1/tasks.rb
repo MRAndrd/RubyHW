@@ -1,73 +1,51 @@
 # 1. Дан целочисленный массив. Необходимо вывести вначале его элементы с четными индексами, а затем - с нечетными.	
 array = [1,2,3,4,5,6,7,8,9,10]
-array.each_with_index {|e,i| puts e if i%2 == 0}
-array.each_with_index {|e,i| puts e if i%2 != 0}
+p (array.partition.with_index { |i| i.even? }).flatten
 p '--------------'
 
 # 2. Дан целочисленный массив. Необходимо вывести вначале его элементы с нечетными индексами, а затем - четными.
 array = [1,2,3,4,5,6,7,8,9,10]
-array.each_with_index {|e,i| puts e if i%2 != 0}
-array.each_with_index {|e,i| puts e if i%2 == 0}
+p (array.partition.with_index { |i| i.odd? }).flatten
 p '--------------'
 
 # 3. Дан целочисленный массив. Преобразовать его, прибавив к четным числам первый элемент. Первый и последний элементы массива не изменять.	
 array = [1,2,3,4,5,6,7,8,9,10]
-puts array.map.each_with_index { |e,i| e + array[0] if i >= 1 && i <= 8 && e%2 == 0}
+p array.map { |e| e.even? && (e != array[0] && e != array[-1] ) ? e + array.first : e }
 p '--------------'
 
 # 4. Дан целочисленный массив. Преобразовать его, прибавив к четным числам последний элемент. Первый и последний элементы массива не изменять.
 array = [1,2,3,4,5,6,7,8,9,10]
-puts array.map.each_with_index { |e,i| e + array[9] if i >= 1 && i <= 8 && e%2 == 0}
+p array.map { |e| e.even? && (e != array[0] && e != array[-1] ) ? e + array.last : e }
 p '--------------'
 
 # 5. Дан целочисленный массив. Преобразовать его, прибавив к нечетным числам последний элемент. Первый и последний элементы массива не изменять.
 array = [1,2,3,4,5,6,7,8,9,10]
-puts array.map.each_with_index { |e,i| e + array[9] if i >= 1 && i <= 8 && e%2 != 0}
+p array.map { |e| e.odd? && (e != array[0] && e != array[-1] ) ? e + array.first : e }
 p '--------------'
 
 # 6. Дан целочисленный массив. Преобразовать его, прибавив к нечетным числам первый элемент. Первый и последний элементы массива не изменять.
 array = [1,2,3,4,5,6,7,8,9,10]
-puts array.map.each_with_index { |e,i| e + array[0] if i >= 1 && i <= 8 && e%2 != 0}
+p array.map { |e| e.odd? && (e != array[0] && e != array[-1] ) ? e + array.last : e }
 p '--------------'
 
 # 7. Дан целочисленный массив. Заменить все положительные элементы на значение минимального.	
 array = [10,2,-33,-55,55,61,-70,8,9,10]
-def positive_to_min(array)
-  min = array.min
-  array.map { |e| e > 0 ? min : e }
-end
-p array
-p positive_to_min(array)
+p array.map { |e| e.positive? ? array.min : e}
 p '--------------'
 
 # 8. Дан целочисленный массив. Заменить все положительные элементы на значение максимального.
 array = [10,2,-33,-55,55,61,-70,8,9,10]
-def positive_to_max(array)
-  max = array.max
-  array.map { |e| e > 0 ? max : e }
-end
-p array
-p positive_to_max(array)
+p array.map { |e| e.positive? ? array.max : e}
 p '--------------'
 
 # 9. Дан целочисленный массив. Заменить все отрицательные элементы на значение минимального.
 array = [10,2,-33,-55,55,61,-70,8,9,10]
-def negative_to_min(array)
-  min = array.min
-  array.map { |e| e < 0 ? min : e }
-end
-p array
-p negative_to_min(array)
+p array.map { |e| e.negative? ? array.min : e}
 p '--------------'
 
 #10. Дан целочисленный массив. Заменить все отрицательные элементы на значение максимального.
 array = [10,2,-33,-55,55,61,-70,8,9,10]
-def negative_to_max(array)
-  max = array.max
-  array.map { |e| e < 0 ? max : e }
-end
-p array
-p negative_to_max(array)
+p array.map { |e| e.negative? ? array.max : e}
 p '--------------'
 
 # 11. Дан целочисленный массив. Найти индекс минимального элемента.
@@ -92,22 +70,22 @@ p '--------------'
 
 # 15. Дан целочисленный массив. Найти минимальный нечетный элемент
 array = [10,2,-33,-77,55,61,-70,8,9,61]
-p array.select{|e| e%2 != 0}.min
+p array.select{|e| e.odd?}.min
 p '--------------'
 
 # 16. Дан целочисленный массив. Найти минимальный четный элемент.
 array = [10,2,-33,-77,55,61,-70,8,9,61]
-p array.select{|e| e%2 == 0}.min
+p array.select{|e| e.even?}.min
 p '--------------'
 
 # 17. Дан целочисленный массив. Найти максимальный четный элемент.
 array = [10,2,77,76,55,61,-70,8,9,61]
-p array.select{|e| e%2 == 0}.max
+p array.select{|e| e.even?}.max
 p '--------------'
 
 # 18. Дан целочисленный массив. Найти максимальный нечетный элемент.
 array = [10,2,77,76,55,61,-70,8,9,61]
-p array.select{|e| e%2 != 0}.max
+p array.select{|e| e.odd?}.max
 p '--------------'
 
 # 19. Дан целочисленный массив. Найти минимальный положительный элемент
@@ -142,34 +120,32 @@ p '--------------'
 
 # 25. Дан целочисленный массив. Вывести вначале все его четные элементы, а затем - нечетные.
 array = [10,2,-77,76,55,61,-70,8,-9,61]
-array.each_with_index {|e,i| puts e if e%2 == 0}
-array.each_with_index {|e,i| puts e if e%2 != 0}
+p array.partition(&:even?).flatten
 p '--------------'
 
 # 26. Дан целочисленный массив. Вывести вначале все его нечетные элементы, а затем - четные.
 array = [10,2,-77,76,55,61,-70,8,-9,61]
-array.each_with_index {|e,i| puts e if e%2 != 0}
-array.each_with_index {|e,i| puts e if e%2 == 0}
+p array.partition(&:odd?).flatten
 p '--------------'
 
 # 27. Дан целочисленный массив. Найти все четные элементы.
 array = [10,2,-77,76,55,61,-70,8,-9,61]
-array.each_with_index {|e,i| puts e if e%2 == 0}
+array.each_with_index {|e,i| puts e if e.even?}
 p '--------------'
 
 # 28. Дан целочисленный массив. Найти все нечетные элементы.	
 array = [10,2,-77,76,55,61,-70,8,-9,61]
-array.each_with_index {|e,i| puts e if e%2 != 0}
+array.each_with_index {|e,i| puts e if e.odd?}
 p '--------------'
 
 # 29. Дан целочисленный массив. Найти количество четных элементов.
 array = [10,2,-77,76,55,61,-70,8,-90,61]
-p array.select { |e| e%2 == 0 }.size
+p array.select { |e| e.even? }.size
 p '--------------'
 
 # 30. Дан целочисленный массив. Найти количество нечетных элементов.	
 array = [10,2,-77,76,55,61,-70,8,-90,61]
-p array.select { |e| e%2 != 0 }.size
+p array.select { |e| e.odd?}.size
 p '--------------'
 
 # 31. Дан целочисленный массив. Осуществить циклический сдвиг элементов массива влево на одну позицию.
@@ -204,38 +180,23 @@ p '--------------'
 
 # 37. Дан целочисленный массив. Найти индекс первого минимального элемента.
 array = [10,2,-33,-70,55,61,-70,8,9,-70]
-def first(array)
-	min = array.min
-	arr = array.find_all { |e| e == min }
-end
-p first(array).first
+p array.index(array.min)
 p '--------------'
 
 # 38. Дан целочисленный массив. Найти индекс первого максимального элемента.
 array = [10,61,-33,-70,55,61,-70,8,61,-70]
-def first(array)
-	max = array.max
-	arr = array.find_all { |e| e == max }
-end
-p first(array).first
+array = [10,2,-33,-70,55,61,-70,8,9,-70]
+p array.index(array.max)
 p '--------------'
 
 # 39. Дан целочисленный массив. Найти индекс последнего максимального  элемента.
 array = [10,61,-33,-70,55,61,-70,8,61,-70]
-def last(array)
-	max = array.max
-	arr = array.find_all { |e| e == max }
-end
-p last(array).last
+p array.rindex(array.max)
 p '--------------'
 
 # 40. Дан целочисленный массив. Найти индекс последнего минимального   элемента.
 array = [10,61,-33,-70,55,61,-70,8,61,-70]
-def last(array)
-	min = array.min
-	arr = array.find_all { |e| e == min }
-end
-p last(array).last
+p array.rindex(array.min)
 p '--------------'
 
 #41. Дан целочисленный массив. Найти количество элементов, расположенных перед первым минимальным.	
