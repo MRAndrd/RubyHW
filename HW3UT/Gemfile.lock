@@ -1,0 +1,18 @@
+GIT
+  remote: https://github.com/MRAndrd/html_maker.git
+  revision: d06934e1cbde39901380f2b687a6ca08298f2f0a
+  branch: main
+  specs:
+    html_maker (0.0.2)
+
+GEM
+  specs:
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  html_maker!
+
+BUNDLED WITH
+   2.1.4
