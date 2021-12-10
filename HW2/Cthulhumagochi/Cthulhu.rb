@@ -13,7 +13,7 @@ class Cthulhu
     @intelligence = 1
 
     puts " #{@name} Народжений!"
-    puts Time.new.to_s + ' дата початку кінця'
+    puts "#{Time.new} дата початку кінця"
     puts "Для ознайомлення з можливостями контактування з #{@name} введи help"
   end
 
@@ -34,7 +34,7 @@ class Cthulhu
   end
 
   def walking
-    puts  " #{@name} гуляє *Злий сміх наповнює простір* "
+    puts " #{@name} гуляє *Злий сміх наповнює простір* "
     @energy = 5
     @mood = 10
     @blood_lust = 2
@@ -131,15 +131,15 @@ class Cthulhu
   end
 
   def stats
-    puts @lives.to_s + ' lives'
-    puts @mood.to_s + ' настрій'
-    puts @stuff_in_belly.to_s + ' насиченість'
-    puts @stuff_in_intestine.to_s + ' бажання сходити в туалет'
-    puts @energy.to_s + ' енергія'
-    puts @powers.to_s + ' сили'
-    puts @blood_lust.to_s + ' жага крові'
-    puts @cleanness.to_s + ' чистота'
-    puts @intelligence.to_s + ' інтелект'
+    puts "#{@lives} lives"
+    puts "#{@mood} настрій"
+    puts "#{@stuff_in_belly} насиченість"
+    puts "#{@stuff_in_intestine} бажання сходити в туалет"
+    puts "#{@energy} енергія"
+    puts "#{@powers} сили"
+    puts "#{@blood_lust} жага крові"
+    puts "#{@cleanness} чистота"
+    puts "#{@intelligence} інтелект"
   end
 
   private
@@ -211,14 +211,11 @@ class Cthulhu
 
     puts 'Мені потрібна людська душа, щоб втамувати голод!' if hungry?
 
-    if poops?
-      puts '... давай зробимо вигляд що нічого не сталось і ти просто прибереш це'
-    end
+    puts '... давай зробимо вигляд що нічого не сталось і ти просто прибереш це' if poops?
 
     puts 'навіть сотні смертей не принесуть мені радість((((((' if depressed?
 
     puts 'Пора вбивати !' if want_to_kill?
-
   end
 end
 
