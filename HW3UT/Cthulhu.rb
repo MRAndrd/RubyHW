@@ -144,20 +144,20 @@ class Cthulhu
     puts 'hug - обійняти всемогутне зло'
     puts 'read - дати почитати всемогутньому знання втрачених цивілізацій'
     puts 'watch_films - повеселити всемогутнього веселим фільмом'
+    puts 'stats - показати стан вашого всемогутнього'
   end
 
-  # можливо варто перенести його тепер в private?
   def stats
-    @stats = ""
-    @stats<<@lives.to_s + ' lives '
-    @stats<<@mood.to_s + ' настрій '
-    @stats<<@stuff_in_belly.to_s + ' насиченість '
-    @stats<<@stuff_in_intestine.to_s + ' бажання сходити в туалет '
-    @stats<<@energy.to_s + ' енергія '
-    @stats<<@powers.to_s + ' сили '
-    @stats<<@blood_lust.to_s + ' жага крові '
-    @stats<<@cleanness.to_s + ' чистота '
-    @stats<<@intelligence.to_s + ' інтелект '
+    @stats = ''
+    @stats << "#{@lives} lives "
+    @stats << "#{@mood} настрій "
+    @stats << "#{@stuff_in_belly} насиченість "
+    @stats << "#{@stuff_in_intestine} бажання сходити в туалет "
+    @stats << "#{@energy} енергія "
+    @stats << "#{@powers} сили "
+    @stats << "#{@blood_lust} жага крові "
+    @stats << "#{@cleanness} чистота "
+    @stats << "#{@intelligence} інтелект "
     @stats
   end
 
@@ -271,6 +271,8 @@ until command == 'exit'
     cthulhu.read
   when 'watch_films'
     cthulhu.watch_films
+  when 'stats'
+    cthulhu.stats
   else
     puts 'Такої команди немає в списку, перевір будь ласка правопис '
   end
