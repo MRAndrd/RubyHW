@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# module checking if 42
 module FourtyTwo
   def fourty_two?
     self == 42
