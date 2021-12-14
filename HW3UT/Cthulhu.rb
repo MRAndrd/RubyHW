@@ -149,15 +149,15 @@ class Cthulhu
   def stats
     @stats = "\n"
     @stats << "#{@lives} lives 💙 \n"
-    @stats << "#{@mood} настрій 😐 " "\n"
-    @stats << "#{@stuff_in_belly} насиченість 👻 " "\n"
-    @stats << "#{@stuff_in_intestine} бажання сходити в туалет 💩 " "\n"
-    @stats << "#{@energy} енергія 🔋 " "\n"
-    @stats << "#{@powers} сили ✨ " "\n"
-    @stats << "#{@blood_lust} жага крові 🩸 " "\n"
-    @stats << "#{@cleanness} чистота 🚿 " "\n"
-    @stats << "#{@intelligence} інтелект 📕 " "\n"
-    @stats 
+    @stats << "#{@mood} настрій 😐 \n"
+    @stats << "#{@stuff_in_belly} насиченість 👻 \n"
+    @stats << "#{@stuff_in_intestine} бажання сходити в туалет 💩 \n"
+    @stats << "#{@energy} енергія 🔋 \n"
+    @stats << "#{@powers} сили ✨\n"
+    @stats << "#{@blood_lust} жага крові 🩸 \n"
+    @stats << "#{@cleanness} чистота 🚿 \n"
+    @stats << "#{@intelligence} інтелект 📕 \n"
+    @stats
   end
 
   private
